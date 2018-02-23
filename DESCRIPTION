@@ -1,7 +1,7 @@
 Package: SPUTNIK
 Type: Package
 Title: SPatially aUTomatic deNoising for Ims toolKit
-Version: 1.0.0
+Version: 1.0.1
 Author: Paolo Inglese [aut, cre],
   Goncalo Correia [aut, ctb]
 Maintainer: Paolo Inglese <p.inglese14@imperial.ac.uk>
@@ -25,6 +25,6 @@ RoxygenNote: 6.0.1
 URL: https://github.com/paoloinglese/SPUTNIK
 BugReports: https://github.com/paoloinglese/SPUTNIK/issues
 NeedsCompilation: no
-Packaged: 2018-02-16 21:11:56 UTC; pi514
+Packaged: 2018-02-23 00:11:15 UTC; pi514
 Repository: CRAN
-Date/Publication: 2018-02-19 09:17:36 UTC
+Date/Publication: 2018-02-23 09:14:13 UTC

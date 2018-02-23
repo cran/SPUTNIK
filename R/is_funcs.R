@@ -64,7 +64,6 @@
   }
 }
 
-
 ## .stopIfNotValidGlobalMethod
 .stopIfNotValidGlobalMethod <- function(x)
 {

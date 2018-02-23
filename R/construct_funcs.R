@@ -21,9 +21,10 @@
 #' ## Load package
 #' library("SPUTNIK")
 #'
+#' ## Create the msi.dataset-class object
 #' sz <- c(5, 4)
-#' x <- matrix(rnorm(sz[1] * sz[2]), sz[1], sz[2])
-#' mz <- seq(100, 195, 5)
+#' x <- matrix(rnorm(sz[1] * sz[2] * 20), sz[1]*sz[2], 20)
+#' mz <- sort(sample(100, ncol(x)))
 #' msiX <- msiDataset(x, mz, sz[1], sz[2])
 #'
 #' @author Paolo Inglese \email{p.inglese14@imperial.ac.uk}
@@ -32,6 +33,15 @@
 #' @importFrom methods new
 msiDataset <-  function(values, mz, rsize, csize)
 {
+  if (ncol(values) != length(mz))
+  {
+    stop("Incompatible dimensions of m/z vector and intensity matrix.")
+  }
+  if (nrow(values) != rsize * csize)
+  {
+    stop("Incompatible rsize and csize values for the provided intensity matrix.")
+  }
+
   object <- new("msi.dataset")
 
   # Remove attributes and dimnames
@@ -115,6 +125,10 @@ msImage <- function(values, name = character(), scale = TRUE)
 #'
 createPeaksFilter <- function(peaksIndices)
 {
+  if (is.null(names(peaksIndices)))
+  {
+    warning("Names of peak indices vector elements should match the selected m/z values.")
+  }
   l <- list(sel.peaks = peaksIndices)
   attr(l, "peak.filter") <- TRUE
   attr(l, "filter") <- "custom"
