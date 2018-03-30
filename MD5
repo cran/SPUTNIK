@@ -1,4 +1,4 @@
-8bed4b85e61bf1ad33563f7d070fb0dd *DESCRIPTION
+40f95b80a8889e9ea0fd1ad902932ed4 *DESCRIPTION
 7d6329878a4bd03bb0aa7906ff10c497 *NAMESPACE
 c445ec3a58883b903adf0f5be308b12f *R/construct_funcs.R
 4e7684c158160acc1f52959267e6282c *R/data_funcs.R
@@ -26,7 +26,7 @@ c0fe31db4459b691e4391a534a56e173 *R/is_funcs.R
 500a58d5b27ba269de0dc8a17c02ba78 *R/ms.image_class.R
 5617b39f0cce18c0a63d8f0e6b730cf2 *R/ms.image_methods.R
 bb3dbb0a5e48c3bc6844adef4b898d51 *R/msi.dataset_class.R
-46cee1cb7395733053a8fa4921573723 *R/msi.dataset_funcs.R
+ca4010f558755b9e06fbd0011b7a34f5 *R/msi.dataset_funcs.R
 f3da30a2d257200ae445738781308b7f *R/msi.dataset_methods.R
 3546ceb344a743892d6703eba6574a72 *R/mz_funcs.R
 e9a6fb7336732d533ae43d3e0d805145 *R/sparseness_funcs.R
