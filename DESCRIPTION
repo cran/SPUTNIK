@@ -1,7 +1,7 @@
 Package: SPUTNIK
 Type: Package
 Title: SPatially aUTomatic deNoising for Ims toolKit
-Version: 1.0.2
+Version: 1.0.3
 Author: Paolo Inglese [aut, cre],
   Goncalo Correia [aut, ctb]
 Maintainer: Paolo Inglese <p.inglese14@imperial.ac.uk>
@@ -19,12 +19,12 @@ Depends: R (>= 3.4.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: no
-Imports: spatstat, autothresholdr, viridis, viridisLite, SDMTools,
-        ggplot2, reshape, imager, methods, infotheo
+Imports: spatstat, autothresholdr, viridis, SDMTools, ggplot2, reshape,
+        imager, methods, infotheo
 RoxygenNote: 6.0.1
 URL: https://github.com/paoloinglese/SPUTNIK
 BugReports: https://github.com/paoloinglese/SPUTNIK/issues
 NeedsCompilation: no
-Packaged: 2018-03-30 11:51:55 UTC; pi514
+Packaged: 2018-07-20 10:12:08 UTC; pi514
 Repository: CRAN
-Date/Publication: 2018-03-30 12:16:22 UTC
+Date/Publication: 2018-07-20 10:40:03 UTC

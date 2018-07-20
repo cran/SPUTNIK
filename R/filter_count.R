@@ -72,6 +72,12 @@ countPixelsFilter <- function(msiData,
 
   for (i in 1:length(msiData@mz))
   {
+    if (var(msiData@matrix[, i]) == 0)
+    {
+      filter.results[i] <- TRUE
+      next()
+    }
+
     im <- matrix(msiData@matrix[, i], msiData@nrow, msiData@ncol)
     im <- msImage(values = im, name = as.character(msiData@mz[i]), scale = T)
     # Apply smoothing

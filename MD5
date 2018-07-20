@@ -1,4 +1,4 @@
-40f95b80a8889e9ea0fd1ad902932ed4 *DESCRIPTION
+919054a354eaa0460df7ea3b837d616b *DESCRIPTION
 7d6329878a4bd03bb0aa7906ff10c497 *NAMESPACE
 c445ec3a58883b903adf0f5be308b12f *R/construct_funcs.R
 4e7684c158160acc1f52959267e6282c *R/data_funcs.R
@@ -16,12 +16,12 @@ bc0f879c61c33214e05120ee3213abc2 *R/examples/msImage_plot.R
 27c740992f6b8aecb195e617ee4e5200 *R/examples/msiDataset_getters.R
 34e53ffc883d5c08b9a78063812fcde5 *R/examples/msiDataset_transform.R
 bc5c2e0cf8d11c78adeaf2e017823393 *R/examples/sparseness.R
-31481bf259f22efb918cc8c6c8ed7592 *R/filter_count.R
+e10b3501a4466b415fb54bb21d7642c6 *R/filter_count.R
 d49ddcee92e6a84d7b544b36df891998 *R/filter_csr.R
-03e926e696ac4ce0ed9b0ed374488734 *R/filter_global.R
+bc2a13b6a14e810835b3e92218269490 *R/filter_global.R
 2b16a8bdcc22d7d5daa98906afb71a0c *R/filter_split.R
 8245ee97f049bae4bd282b0502ff66d3 *R/generic_funcs.R
-c6b583069a04048f9cf7aaca7228bfee *R/graph_funcs.R
+2cb2dff724b3856cd52b9c97f23095c0 *R/graph_funcs.R
 c0fe31db4459b691e4391a534a56e173 *R/is_funcs.R
 500a58d5b27ba269de0dc8a17c02ba78 *R/ms.image_class.R
 5617b39f0cce18c0a63d8f0e6b730cf2 *R/ms.image_methods.R
