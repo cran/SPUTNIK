@@ -232,7 +232,7 @@ SSIM <- function(x, y, numBreaks = 256)
 #' @param numBins numeric. Number of bins for discretizing the image colors. See
 #' \link[infotheo]{discretize}.
 #'
-#' @return NMI value between -1 and 1.
+#' @return NMI value between 0 and 1.
 #'
 #' @author Paolo Inglese \email{p.inglese14@@imperial.ac.uk}
 #'
@@ -250,7 +250,7 @@ NMI <- function(x, y, numBins = 256)
   mi <- mutinformation(x.dig, y.dig, method = "emp")
   ## Add the sign to the mutual information
   mi <- mi * sign(mean(x.dig[y.dig == 1]) - mean(x.dig[y.dig == 0]))
-
+  
   h1 <- entropy(x.dig, method = "emp")
   h2 <- entropy(y.dig, method = "emp")
 
