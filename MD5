@@ -1,4 +1,4 @@
-5ddadc8d3b14cd008ea965edf3f14730 *DESCRIPTION
+633591c5f43418a17b181766918e72c5 *DESCRIPTION
 7d6329878a4bd03bb0aa7906ff10c497 *NAMESPACE
 c445ec3a58883b903adf0f5be308b12f *R/construct_funcs.R
 4e7684c158160acc1f52959267e6282c *R/data_funcs.R
@@ -21,7 +21,7 @@ d49ddcee92e6a84d7b544b36df891998 *R/filter_csr.R
 9d88e5ff664bf328358b74249f2e925a *R/filter_global.R
 2b16a8bdcc22d7d5daa98906afb71a0c *R/filter_split.R
 8245ee97f049bae4bd282b0502ff66d3 *R/generic_funcs.R
-c61269cc0617555c440330e84cd36bc5 *R/graph_funcs.R
+0b26ba380fa6a7ecf220d3eb3690d9a0 *R/graph_funcs.R
 c0fe31db4459b691e4391a534a56e173 *R/is_funcs.R
 500a58d5b27ba269de0dc8a17c02ba78 *R/ms.image_class.R
 5617b39f0cce18c0a63d8f0e6b730cf2 *R/ms.image_methods.R
