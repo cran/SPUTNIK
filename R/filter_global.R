@@ -84,19 +84,25 @@ globalPeaksFilter <- function(msiData,
       stop("globalPeaksFilter: 'nmi' can be only used with binary reference images.")
   }
 
-  r <- switch(method,
-              "pearson" = apply(msiData@matrix, 2, function(z)
+  r <- array(NA, ncol(msiData@matrix))
+  idx.non.const <- apply(msiData@matrix, 2, var) != 0
+  
+  r[idx.non.const] <- switch(method,
+              "pearson" = apply(msiData@matrix[, idx.non.const], 2, function(z)
                 cor(z, c(referenceImage@values), method = method)),
-              "spearman" = apply(msiData@matrix, 2, function(z)
+              "spearman" = apply(msiData@matrix[, idx.non.const], 2, function(z)
                 cor(z, c(referenceImage@values), method = method)),
-              "ssim" = apply(msiData@matrix, 2, function(z)
+              "ssim" = apply(msiData@matrix[, idx.non.const], 2, function(z)
                 SSIM(z, referenceImage@values)),
-              "nmi" = apply(msiData@matrix, 2, function(z)
+              "nmi" = apply(msiData@matrix[, idx.non.const], 2, function(z)
                 NMI(z, c(referenceImage@values)))
               )
   
   if (verbose)
-    print(quantile(r))
+  {
+    cat('Similarity measure quantiles (after removing NAs):\n')
+    print(quantile(r, na.rm = TRUE))
+  }
   
   if (verbose)
     cat(paste0('Selecting peaks with similarity larger than ', threshold, '...\n'))

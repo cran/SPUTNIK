@@ -1,6 +1,6 @@
-4b67bb65c8da0d5a724e03eac9b2b7ee *DESCRIPTION
+cc05ff1f90a90c2dc7b98b57f0b37319 *DESCRIPTION
 03cc33e7de124ff88494cf3c5430265d *NAMESPACE
-d5f900f810fccfae473dda46e0e5094a *NEWS
+87df96e55458a52ce2f9ddf23a79bf9f *NEWS
 71764a0183f51e182c147304a0a3126a *R/add_rem_border.R
 dcbe99e376fc1720c8d39b8a6cba7aae *R/construct_funcs.R
 22375ffacbc36c63f6fdcc06a95f82f0 *R/data_funcs.R
@@ -21,7 +21,7 @@ bc0f879c61c33214e05120ee3213abc2 *R/examples/msImage_plot.R
 b200b8b27a187e21c922aadadd75adfa *R/examples/sparseness.R
 4393e33b8b7bb7021dbc99610fa5619e *R/filter_count.R
 594055c52b3b620c978bd96609505211 *R/filter_csr.R
-6559e30b1957b466319ca578f209ad0a *R/filter_global.R
+b5ffc51577e02162fa92e48fe7620d31 *R/filter_global.R
 e37f825ed326d85abc5422377d9e31c6 *R/filter_split.R
 1b72dd4110bd8d2f27b0e967b06b0f91 *R/generic_funcs.R
 e2595bccdf9bc13b3c07ed1f880ed0bf *R/graph_funcs.R
