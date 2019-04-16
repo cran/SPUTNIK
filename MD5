@@ -1,6 +1,6 @@
-cc05ff1f90a90c2dc7b98b57f0b37319 *DESCRIPTION
+409fb9858f501a2b4100b0de657ac1aa *DESCRIPTION
 03cc33e7de124ff88494cf3c5430265d *NAMESPACE
-87df96e55458a52ce2f9ddf23a79bf9f *NEWS
+6cd41d427dca1fd94f3538daeafaf2e7 *NEWS
 71764a0183f51e182c147304a0a3126a *R/add_rem_border.R
 dcbe99e376fc1720c8d39b8a6cba7aae *R/construct_funcs.R
 22375ffacbc36c63f6fdcc06a95f82f0 *R/data_funcs.R
@@ -32,7 +32,7 @@ fe43b1a54db6b27c8fc48ca2c025965e *R/ms.image_methods.R
 c89491240b5a17b1e8f0d897b25a5962 *R/msi.dataset_funcs.R
 c18fbbcd07675e6e9d77846dccb8fac5 *R/msi.dataset_methods.R
 5e151aa45aa176d9d8f89ca4b86a2481 *R/mz_funcs.R
-5b655dda2d7f1e41533c26c5ad60b10a *R/sparseness_funcs.R
+b50663c16a95f62eca00f75bdd5d4beb *R/sparseness_funcs.R
 8bdea576bd010c2b27145ee9114104d3 *man/CSRPeaksFilter.Rd
 e79dd16b0575e516e671f747e1468acb *man/NMI.Rd
 572fcfb12b9610cead080ce2f0b5d234 *man/SSIM.Rd
