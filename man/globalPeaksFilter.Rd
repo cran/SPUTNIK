@@ -4,8 +4,13 @@
 \alias{globalPeaksFilter}
 \title{Reference similarity based peak selection.}
 \usage{
-globalPeaksFilter(msiData, referenceImage, method = "pearson",
-  threshold = NULL, verbose = TRUE)
+globalPeaksFilter(
+  msiData,
+  referenceImage,
+  method = "pearson",
+  threshold = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{msiData}{\link{msi.dataset-class} object. See \link{msiDataset}.}
@@ -53,7 +58,8 @@ Since correlation can assume values in [-1, 1], also NMI are scaled in [-1, 1].
 library("SPUTNIK")
 
 ## Mass spectrometry intensity matrix
-X <- matrix(rnorm(200), 20, 40)
+X <- matrix(rnorm(16000), 400, 40)
+X[X < 0] <- 0
 
 ## Print original dimensions
 print(dim(X))
@@ -62,7 +68,7 @@ print(dim(X))
 mzVector <- seq(600, 900, by = (900 - 600) / 39)
 
 ## Read the image size
-imSize <- c(5, 4)
+imSize <- c(20, 20)
 
 ## Construct the ms.dataset object
 msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
@@ -71,8 +77,10 @@ msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 ref.roi <- refAndROIimages(msiX, refMethod = "sum", roiMethod = "otsu")
 
 ## Perform global peaks filter
-glob.peaks <- globalPeaksFilter(msiData = msiX, referenceImage = ref.roi$Reference,
-                                method = "pearson", threshold = 0)
+glob.peaks <- globalPeaksFilter(
+  msiData = msiX, referenceImage = ref.roi$Reference,
+  method = "pearson", threshold = 0
+)
 
 ## Apply the filter
 msiX <- applyPeaksFilter(msiX, glob.peaks)

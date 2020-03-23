@@ -20,40 +20,28 @@
 setClass(
 
   "ms.image",
-
   slots = list(
     values = "matrix",
     name = "character",
     scaled = "logical"
   ),
 
-  validity = function(object)
-  {
-    if (length(dim(object@values)) != 2)
-    {
-      return("values must be 2-D numeric matrix.")
+  validity = function(object) {
+    if (length(dim(object@values)) != 2) {
+      return("Values must be 2-D numeric matrix.")
     }
 
-    if (any(is.na(object@values)))
-    {
-      return("values contain NA")
+    if (any(!is.finite(c(object@values)))) {
+      return("Values must be finite")
     }
 
-    if (any(is.infinite(object@values)))
-    {
-      return("values contains Inf")
+    if (min(c(object@values)) < 0 || max(c(object@values)) > 1) {
+      return("Values are not between 0 and 1.")
     }
 
-    if (min(object@values) < 0 || max(object@values) > 1)
-    {
-      return("values not between 0 and 1.")
-    }
-
-    if (var(object@values) == 0)
-    {
-      warning("constant values.")
+    if (var(c(object@values)) == 0) {
+      return("Constant image.")
     }
     return(TRUE)
   }
-
 )

@@ -17,24 +17,21 @@
 #' @example R/examples/sparseness.R
 #'
 #' @export
-#' @importFrom SDMTools ConnCompLabel
 #' @import imager
 #'
-scatter.ratio <- function(im)
-{
+scatter.ratio <- function(im) {
   stopifnot(length(dim(im)) == 2)
   stopifnot(all(!is.nan(im)))
   # Convert to gray scale [0, 1]
-  if (min(im) < 0)
-  {
+  if (min(im) < 0) {
     im <- (im - min(im)) / (max(im) - min(im))
-  } else
-  {
+  } else {
     im <- im / max(im)
   }
-  bin_ <- threshold(as.cimg(im), thr = 'auto', approx = FALSE)
-  bin_ <- as.matrix(bin_)
-  lbl_ <- unique(c(ConnCompLabel(bin_)))
+  bin_ <- threshold(as.cimg(im), thr = "auto", approx = FALSE)
+  lbl_ <- label(bin_)
+  lbl_ <- as.matrix(lbl_)
+  lbl_ <- unique(c(lbl_))
   return(length(lbl_[lbl_ != 0]) / sum(bin_))
 }
 
@@ -63,8 +60,7 @@ scatter.ratio <- function(im)
 #' @seealso \link{scatter.ratio} \link{spatial.chaos}
 #' @export
 #'
-gini.index <- function(x, levels = 256)
-{
+gini.index <- function(x, levels = 256) {
   x <- cut(x = x, breaks = levels, labels = F) - 1
   h <- sort(x)
   N <- length(h)
@@ -74,7 +70,7 @@ gini.index <- function(x, levels = 256)
   tmp.term <- 0
   for (i in 1:length(h))
   {
-    tmp.term <- tmp.term + h[i] / l1.norm * ((N - (num.zeros+i) + 1/2) / N)
+    tmp.term <- tmp.term + h[i] / l1.norm * ((N - (num.zeros + i) + 1 / 2) / N)
   }
   return(1 - 2 * tmp.term)
 }
@@ -103,19 +99,15 @@ gini.index <- function(x, levels = 256)
 #'
 #' @seealso \link{gini.index} \link{scatter.ratio}
 #' @export
-#' @importFrom imager mclosing_square as.cimg
-#' @importFrom SDMTools ConnCompLabel
+#' @import imager
 #'
-spatial.chaos <- function(im, levels = 30, morph = TRUE)
-{
+spatial.chaos <- function(im, levels = 30, morph = TRUE) {
   stopifnot(length(dim(im)) == 2)
   stopifnot(all(!is.nan(im)))
 
-  if (min(im) < 0)
-  {
+  if (min(im) < 0) {
     im <- (im - min(im)) / (max(im) - min(im))
-  } else
-  {
+  } else {
     im <- im / max(im)
   }
   num.obj <- array(0, levels)
@@ -124,11 +116,11 @@ spatial.chaos <- function(im, levels = 30, morph = TRUE)
   {
     th <- n / levels
     bw <- (im > th) * 1
-    if (morph)
-    {
-      bw <- as.matrix(mclosing_square(as.cimg(bw), 3))
+    if (morph) {
+      bw <- mclosing_square(as.cimg(bw), 3)
     }
-    lbl <- ConnCompLabel(bw)
+    lbl <- label(bw)
+    lbl <- as.matrix(lbl)
     num.obj[n] <- length(unique(lbl[lbl != 0]))
   }
   return(1 - sum(num.obj) / (num.pix * levels))

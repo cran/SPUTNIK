@@ -3,6 +3,7 @@ library("SPUTNIK")
 
 ## Mass spectrometry intensity matrix
 X <- matrix(rnorm(200), 20, 40)
+X[X < 0] <- 0
 
 ## Print original dimensions
 print(dim(X))
@@ -22,8 +23,10 @@ msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 ## Use only m/z values in the range of [700, 900]. The interval extremal values
 ## are matched within a tolerance of 50 ppm.
 
-ref.roi <- refAndROIimages(msiData = msiX, refMethod = "sum",
-                           roiMethod = "otsu", useFullMZRef = TRUE)
+ref.roi <- refAndROIimages(
+  msiData = msiX, refMethod = "sum",
+  roiMethod = "otsu", useFullMZRef = TRUE
+)
 
 ## Plot the reference and region of interest ROI
 ## plot(ref.roi$Reference)

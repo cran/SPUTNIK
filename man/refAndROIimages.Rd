@@ -4,11 +4,21 @@
 \alias{refAndROIimages}
 \title{Compute the reference image and the ROI mask.}
 \usage{
-refAndROIimages(msiData, refMethod = "sum", roiMethod = "otsu",
-  mzQueryRef = numeric(), mzTolerance = numeric(),
-  useFullMZRef = TRUE, smoothRef = FALSE, smoothSigma = 2,
-  invertRef = FALSE, numClusters = 4, sizeKernel = 5, numCores = 1,
-  verbose = TRUE)
+refAndROIimages(
+  msiData,
+  refMethod = "sum",
+  roiMethod = "otsu",
+  mzQueryRef = numeric(),
+  mzTolerance = Inf,
+  useFullMZRef = TRUE,
+  smoothRef = FALSE,
+  smoothSigma = 2,
+  invertRef = FALSE,
+  numClusters = 4,
+  sizeKernel = 5,
+  numCores = 1,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{msiData}{\link[SPUTNIK]{msiDataset} object..}
@@ -35,10 +45,10 @@ binary mask. Valid values are:
 
 \item{mzQueryRef}{numeric. Values of m/z used to calculate the reference image.
 2 values are interpreted as interval, multiple or single values are searched
-in the m/z vector. It should be left unset when using \code{useFullMZRef = TRUE}.}
+in the m/z vector. It overrides the param \code{useFullMZRef}.}
 
-\item{mzTolerance}{numeric. Tolerance in PPM to match the \code{mzQueryRef}
-values in the m/z vector. Only valid when \code{useFullMZ = FALSE}.}
+\item{mzTolerance}{numeric (default = Inf). Tolerance in PPM to match the
+\code{mzQueryRef} values in the m/z vector.}
 
 \item{useFullMZRef}{logical (default = TRUE). Whether all the peaks should be
 used to calculate the reference image.}
@@ -91,6 +101,7 @@ library("SPUTNIK")
 
 ## Mass spectrometry intensity matrix
 X <- matrix(rnorm(200), 20, 40)
+X[X < 0] <- 0
 
 ## Print original dimensions
 print(dim(X))
@@ -110,8 +121,10 @@ msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 ## Use only m/z values in the range of [700, 900]. The interval extremal values
 ## are matched within a tolerance of 50 ppm.
 
-ref.roi <- refAndROIimages(msiData = msiX, refMethod = "sum",
-                           roiMethod = "otsu", useFullMZRef = TRUE)
+ref.roi <- refAndROIimages(
+  msiData = msiX, refMethod = "sum",
+  roiMethod = "otsu", useFullMZRef = TRUE
+)
 
 ## Plot the reference and region of interest ROI
 ## plot(ref.roi$Reference)

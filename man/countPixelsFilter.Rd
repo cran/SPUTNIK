@@ -4,9 +4,17 @@
 \alias{countPixelsFilter}
 \title{Filter based on the minimum number of connected pixels in the ROI.}
 \usage{
-countPixelsFilter(msiData, roiImage, minNumPixels = 9,
-  smoothPeakImage = FALSE, smoothSigma = 2, closePeakImage = FALSE,
-  closeKernSize = 5, aggressive = 0, verbose = TRUE)
+countPixelsFilter(
+  msiData,
+  roiImage,
+  minNumPixels = 9,
+  smoothPeakImage = FALSE,
+  smoothSigma = 2,
+  closePeakImage = FALSE,
+  closeKernSize = 5,
+  aggressive = 0,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{msiData}{\link{msi.dataset-class} object. See \link{msiDataset}.}
@@ -66,7 +74,8 @@ different results, depending on the nature of the analyzed dataset.
 library("SPUTNIK")
 
 ## Mass spectrometry intensity matrix
-X <- matrix(rnorm(200), 20, 40)
+X <- matrix(rnorm(16000), 400, 40)
+X[X < 0] <- 0
 
 ## Print original dimensions
 print(dim(X))
@@ -75,18 +84,22 @@ print(dim(X))
 mzVector <- seq(600, 900, by = (900 - 600) / 39)
 
 ## Read the image size
-imSize <- c(5, 4)
+imSize <- c(20, 20)
 
 ## Construct the ms.dataset object
 msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 
 ## Extract the ROI using k-means
-ref.roi <- refAndROIimages(msiData = msiX, refMethod = "sum",
-                           roiMethod = "otsu", useFullMZRef = TRUE)
+ref.roi <- refAndROIimages(
+  msiData = msiX, refMethod = "sum",
+  roiMethod = "otsu", useFullMZRef = TRUE
+)
 
 ## Perform count pixels filtering
-count.sel <- countPixelsFilter(msiData = msiX, roiImage = ref.roi$ROI,
-                               minNumPixels = 4, aggressive = 1)
+count.sel <- countPixelsFilter(
+  msiData = msiX, roiImage = ref.roi$ROI,
+  minNumPixels = 4, aggressive = 1
+)
 
 ## Apply the filter
 msiX <- applyPeaksFilter(msiX, count.sel)

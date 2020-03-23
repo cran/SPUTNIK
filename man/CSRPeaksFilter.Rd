@@ -4,11 +4,23 @@
 \alias{CSRPeaksFilter}
 \title{Performs the peak selection based on complete spatial randomness test.}
 \usage{
-CSRPeaksFilter(msiData, method = "ClarkEvans", covariateImage = NULL,
-  covMethod = "sum", mzQueryCov = numeric(), mzTolerance = numeric(),
-  useFullMZCov = TRUE, smoothCov = FALSE, smoothCovSigma = 2,
-  invertCov = FALSE, adjMethod = "bonferroni", returnQvalues = TRUE,
-  plotCovariate = FALSE, verbose = TRUE, ...)
+CSRPeaksFilter(
+  msiData,
+  method = "ClarkEvans",
+  covariateImage = NULL,
+  covMethod = "sum",
+  mzQueryCov = numeric(),
+  mzTolerance = numeric(),
+  useFullMZCov = TRUE,
+  smoothCov = FALSE,
+  smoothCovSigma = 2,
+  invertCov = FALSE,
+  adjMethod = "bonferroni",
+  returnQvalues = TRUE,
+  plotCovariate = FALSE,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{msiData}{\link{msi.dataset-class} object. See \link{msiDataset}.}
@@ -82,7 +94,8 @@ in the \code{statspat} R package.
 library("SPUTNIK")
 
 ## Mass spectrometry intensity matrix
-X <- matrix(rnorm(200), 20, 40)
+X <- matrix(rnorm(16000), 400, 40)
+X[X < 0] <- 0
 
 ## Print original dimensions
 print(dim(X))
@@ -91,15 +104,17 @@ print(dim(X))
 mzVector <- seq(600, 900, by = (900 - 600) / 39)
 
 ## Read the image size
-imSize <- c(5, 4)
+imSize <- c(20, 20)
 
 ## Construct the ms.dataset object
 msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 
 ## Calculate the p-values using the Clark Evans test, then apply Benjamini-
 ## Hochberg correction.
-csr <- CSRPeaksFilter(msiData = msiX, method = "ClarkEvans",
-                      calculateCovariate = FALSE, adjMethod = "BH")
+csr <- CSRPeaksFilter(
+  msiData = msiX, method = "ClarkEvans",
+  calculateCovariate = FALSE, adjMethod = "BH"
+)
 
 ## Print selected peaks
 print(csr$q.value)
