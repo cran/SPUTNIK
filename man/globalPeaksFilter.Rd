@@ -9,6 +9,7 @@ globalPeaksFilter(
   referenceImage,
   method = "pearson",
   threshold = NULL,
+  cores = 1,
   verbose = TRUE
 )
 }
@@ -34,6 +35,8 @@ similarity with the reference image (typically representing the spatial
 distribution of the signal source) are retrieved. For consistency, the NMI are
 scaled in [-1, 1] to match the same range of correlations.}
 
+\item{cores}{integer (default = 1). Number of cores for parallel computing.}
+
 \item{verbose}{logical (default = \code{TRUE}). Additional output text.}
 }
 \value{
@@ -45,9 +48,8 @@ with a reference image.
 }
 \details{
 A filter based on the similarity between the peak signals and a reference
-signal. The reference signal, passed as an \code{\link{ms.image-class}} object,
-can be calculated using the \code{\link{refAndROIimages}} function. Both continuous
-and binary references can be passed. The filter then calculates the similarity
+signal. The reference signal, passed as an \code{\link{ms.image-class}} object.
+Both continuous and binary references can be passed. The filter then calculates the similarity
 between the peaks signal and the reference image and select those with a similarity
 larger than \code{threshold}. Multiple measures are available, correlation,
 structural similarity index measure (SSIM), and normalized mutual information (NMI).
@@ -74,11 +76,11 @@ imSize <- c(20, 20)
 msiX <- msiDataset(X, mzVector, imSize[1], imSize[2])
 
 ## Generate the reference image and the ROI mask
-ref.roi <- refAndROIimages(msiX, refMethod = "sum", roiMethod = "otsu")
+refImg <- refImageContinuous(msiX, method = "sum")
 
 ## Perform global peaks filter
 glob.peaks <- globalPeaksFilter(
-  msiData = msiX, referenceImage = ref.roi$Reference,
+  msiData = msiX, referenceImage = refImg,
   method = "pearson", threshold = 0
 )
 
