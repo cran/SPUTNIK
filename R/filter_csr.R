@@ -32,7 +32,7 @@
 #' @param verbose logical (default = \code{TRUE}). Additional output texts are
 #' generated.
 #' @param ... additional parameters compatible with the \code{statspat.core} functions.
-#' See \link[spatstat.core]{cdf.test} for "KS" and \link[spatstat.core]{clarkevans.test}.
+#' See \link[spatstat.explore]{cdf.test} for "KS" and \link[spatstat.explore]{clarkevans.test}.
 #' for "ClarkEvans"
 #'
 #' @author Paolo Inglese \email{p.inglese14@imperial.ac.uk}
@@ -121,7 +121,7 @@ CSRPeaksFilter <- function(msiData,
     # Run parallel
     
     cl <- makeCluster(cores)
-    doSNOW::registerDoSNOW(cl)
+    registerDoSNOW(cl)
     
     i <- NULL
     p_ <- foreach::foreach(i = 1:niter, .combine = c, .options.snow = opts) %dopar% {
@@ -180,8 +180,8 @@ CSRPeaksFilter <- function(msiData,
 ## .csr.test.im
 #' @importFrom spatstat.geom owin
 #' @importFrom spatstat.geom ppp
-#' @importFrom spatstat.core clarkevans.test
-#' @importFrom spatstat.core cdf.test
+#' @importFrom spatstat.explore clarkevans.test
+#' @importFrom spatstat.explore cdf.test
 .csr.test.im <- function(im,
                          method = "ClarkEvans",
                          ref.im = NULL,
