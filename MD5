@@ -1,5 +1,6 @@
-abf53719add25c0ddc5e4c08d234073a *DESCRIPTION
-a84c7d35fd605eeaff7ec3ed6a5fd302 *NAMESPACE
+82b7a3c9d8fb29aeac25ba44c06a77c1 *DESCRIPTION
+66a52aba95cfbc523059b6490583ad38 *NAMESPACE
+e460b3079afb2c65b490f63066c9780f *NEWS
 c1dbaeeae030f53b9735d77a51b56f8d *R/add_rem_border.R
 642e7e547f9f52d22b5465bbdf7beded *R/binary_refimg.R
 aec64035d7961ee026fa9668cfaf3272 *R/construct_funcs.R
@@ -28,12 +29,13 @@ d2729f23d1524cd39d80c87a7fc442ac *R/generic_funcs.R
 af997e7aafe1ae48dbc9a4345c6b2f31 *R/graph_funcs.R
 2be874ef8014aff426f542ce97e4670a *R/is_funcs.R
 edc9d26e4d4d60b1460a6c61d02f2152 *R/ms.image_class.R
-7b3e8a1726d8bf80e122325693f15235 *R/ms.image_methods.R
+b5fbf0b423498c1b2ecb6651fdf6bdc3 *R/ms.image_methods.R
 c49b1444e16f86163c480bb03d6810c5 *R/msi.dataset_class.R
 9aef4be48d0558e42e5c729cb3e16c2e *R/msi.dataset_funcs.R
 9f2a17cdc7e553751c73fac1c3d4340d *R/msi.dataset_methods.R
 41b56daac559f289af1113f25f42e0ee *R/mz_funcs.R
 4a37cf78cd8a136e681b98d92ae246fd *R/sparseness_funcs.R
+6ae974515cb049cfc8a405f90a9b1f3e *README.md
 f6da86945ad7c266c2f2ec233b63b043 *inst/CITATION
 5211dfe68c44af9c5bfa6183e20754f6 *man/CSRPeaksFilter.Rd
 066a155ebafc07f25a13b53881266e5f *man/NMI.Rd
@@ -61,7 +63,7 @@ b9d80b3529ed261c70695a013b749571 *man/invertImage-ms.image-method.Rd
 89ca0165a4b55b5c8fa11d0f54d42642 *man/normIntensity-msi.dataset-method.Rd
 296d76c752209a8331c58b0fd0ab0345 *man/numDetectedMSI-msi.dataset-method.Rd
 1f963b86aa8abc0d7b66aed695b1d63d *man/ovarianDESIDoria2016.Rd
-be5dd96c82a02447ef6f4894abc0475f *man/plot.Rd
+a22d3a5dbfb2f8e81e2e252f6621a6b3 *man/plot.Rd
 20e7cf7d7803c39cd6b463e4325a7d40 *man/refImageBinaryKmeans.Rd
 23754a029aa786b0fa100750d78653ce *man/refImageBinaryKmeansMulti.Rd
 a5653ce523b17e8a2e0f63b4663f7be4 *man/refImageBinaryOtsu.Rd
